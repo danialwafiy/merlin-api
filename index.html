@@ -27,7 +27,9 @@
                     </div>
                     <ul class="text-lg font-semibold">
                         <li class="px-6 py-2 bg-gray-900 text-white">API</li>
-                        <li class="px-6 py-2 border-t-2  border-gray-200"><a href="#json">JSON</a></li>
+                        <li class="px-6 py-2 border-t-2  border-gray-200"><a href="#watchtime">WATCH TIME</a></li>
+                        <li class="px-6 py-2 border-t-2  border-gray-200"><a href="#quiz">QUIZ</a></li>
+                        <li class="px-6 py-2 border-t-2  border-gray-200"><a href="#gamesession">GAME SESSION</a></li>
                     </ul>
                 </div>
                 <div class="w-full h-full p-10">
@@ -46,12 +48,12 @@
                     <div class="mb-8">
                         <div class="text-3xl font-bold">API</div>
                         <div class="mt-2 mb-4">Below is a list of the APIs available for the content team.</div>
-                        <div class="mt-4" id="json">
-                            <div class="italic bg-gray-900 text-white py-1 px-2 rounded"><span class=" font-semibold"'>JSON</span> - Manage JSON data.</div>
+                        <div class="mt-4" id="watchtime">
+                            <div class="italic bg-gray-900 text-white py-1 px-2 rounded"><span class=" font-semibold"'>WATCHTIME</span> - Manage watch time data.</div>
                             <div class="md:px-10 px-0 mt-4">
                                 <div class="flex flex-wrap mb-8">
                                     <div class="w-1/2 flex flex-col">                
-                                        <div class=" my-2"><span class=" font-semibold">RECEIVE: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/json</div>
+                                        <div class=" my-2"><span class=" font-semibold">RECEIVE: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/watchtime</div>
                                         <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
                                         <table class="border-2 border-gray-400 text-center w-1/2">
                                             <thead class="border-2 border-gray-400">
@@ -60,11 +62,12 @@
                                                     <th class="px-6 text-sm ">Name</th>
                                                     <th class="px-6 text-sm ">Type</th>
                                                     <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white">
                                                 <tr class="border-2 border-gray-400">
-                                                    <td colspan="4">-</td>
+                                                    <td colspan="5">-</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -72,21 +75,24 @@
                                     <div class="flex-1 md:mt-0 mt-3">
                                         <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
                                         <pre>
-                [
-                    {
-                        "id": 1,
-                        "json": "{"foo":"bar"}",
-                        "created_at": "2021-07-06 10:21:42",
-                        "updated_at": "2021-07-06 10:21:42"
-                    },
-                ]
+            [
+                {
+                    "id": 1,
+                    "user_id": 1,
+                    "type": "Playy",
+                    "time": 23,
+                    "team": "AR",
+                    "created_at": "2021-10-01 11:40:29",
+                    "updated_at": "2021-10-01 11:40:29"
+                }
+            ]
                                         </pre>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="flex flex-wrap my-8">
                                     <div class="w-1/2 flex flex-col">                
-                                        <div class=" my-2"><span class=" font-semibold">CREATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">POST</span> http://mmu.ddns.net/api/json</div>
+                                        <div class=" my-2"><span class=" font-semibold">CREATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">POST</span> http://mmu.ddns.net/api/watchtime</div>
                                         <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
                                         <table class="border-2 border-gray-400 text-center w-1/2">
                                             <thead class="border-2 border-gray-400">
@@ -95,14 +101,37 @@
                                                     <th class="px-6 text-sm ">Name</th>
                                                     <th class="px-6 text-sm ">Type</th>
                                                     <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white">
                                                 <tr class="border-2 border-gray-400">
                                                     <td class="px-6 ">1</td>
-                                                    <td class="px-6 text-sm ">json</td>
-                                                    <td class="px-6 text-sm ">JSON</td>
+                                                    <td class="px-6 text-sm ">user_id</td>
+                                                    <td class="px-6 text-sm ">integer</td>
                                                     <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">2</td>
+                                                    <td class="px-6 text-sm ">type</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">3 PT Lightning</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">time</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">20</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">4</td>
+                                                    <td class="px-6 text-sm ">team</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">AR</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -110,22 +139,25 @@
                                     <div class="flex-1 md:mt-0 mt-3">
                                         <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
                                         <pre>
-                {
-                    "status": "success",
-                    "data": {
-                        "id": 1,
-                        "json": "{\"foo\":\"bar\"}",
-                        "updated_at": "2021-07-08 18:49:25",
-                        "created_at": "2021-07-08 18:49:25",
-                    }
+            {
+                "status": "success",
+                "data": {
+                    "user_id": "1",
+                    "type": "3 PT Lightning",
+                    "time": "20",
+                    "team": "AR",
+                    "updated_at": "2021-10-01 11:52:03",
+                    "created_at": "2021-10-01 11:52:03",
+                    "id": 1
                 }
+            }
                                         </pre>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="flex flex-wrap my-8">
                                     <div class="w-1/2 flex flex-col">                
-                                        <div class=" my-2"><span class=" font-semibold">UPDATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">PUT/PATCH</span> http://mmu.ddns.net/api/json/{json_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">SHOW: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/watchtime/{watchtime_id}</div>
                                         <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
                                         <table class="border-2 border-gray-400 text-center w-1/2">
                                             <thead class="border-2 border-gray-400">
@@ -134,14 +166,74 @@
                                                     <th class="px-6 text-sm ">Name</th>
                                                     <th class="px-6 text-sm ">Type</th>
                                                     <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "id": 1,
+                "user_id": 1,
+                "type": "3 PT Lightning",
+                "time": 20,
+                "team": "AR",
+                "created_at": "2021-10-01 11:40:29",
+                "updated_at": "2021-10-01 11:40:29"
+            }
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">UPDATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">PUT/PATCH</span> http://mmu.ddns.net/api/watchtime/{watchtime_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white">
                                                 <tr class="border-2 border-gray-400">
                                                     <td class="px-6 ">1</td>
-                                                    <td class="px-6 text-sm ">json</td>
-                                                    <td class="px-6 text-sm ">JSON</td>
+                                                    <td class="px-6 text-sm ">user_id</td>
+                                                    <td class="px-6 text-sm ">integer</td>
                                                     <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">2</td>
+                                                    <td class="px-6 text-sm ">type</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">3 PT Lightning</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">time</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">30</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">4</td>
+                                                    <td class="px-6 text-sm ">team</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">AR</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -149,23 +241,25 @@
                                     <div class="flex-1 md:mt-0 mt-3">
                                         <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
                                         <pre>
-                {
-                    "status": "success",
-                    "data": {
-                        "id": 1,
-                        "json": "{\"foo\":\"bar\"}",
-                        "updated_at": "2021-07-08 18:49:25",
-                        "created_at": "2021-07-08 18:49:25",
-                    }
+            {
+                "status": "success",
+                "data": {
+                    "user_id": "1",
+                    "type": "3 PT Lightning",
+                    "time": "30",
+                    "team": "AR",
+                    "updated_at": "2021-10-01 11:52:03",
+                    "created_at": "2021-10-01 11:52:03",
+                    "id": 1
                 }
-                 
+            }
                                         </pre>
-                                    </div>
+                                        </div>
                                 </div>
                                 <hr>
                                 <div class="flex flex-wrap my-8">
                                     <div class="w-1/2 flex flex-col">                
-                                        <div class=" my-2"><span class=" font-semibold">DELETE: <span class="bg-gray-600 rounded p-1 text-white text-xs">DELETE</span> http://mmu.ddns.net/api/json/{json_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">DELETE: <span class="bg-gray-600 rounded p-1 text-white text-xs">DELETE</span> http://mmu.ddns.net/api/watchtime/{watchtime_id}</div>
                                         <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
                                         <table class="border-2 border-gray-400 text-center w-1/2">
                                             <thead class="border-2 border-gray-400">
@@ -174,11 +268,12 @@
                                                     <th class="px-6 text-sm ">Name</th>
                                                     <th class="px-6 text-sm ">Type</th>
                                                     <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white">
                                                 <tr class="border-2 border-gray-400">
-                                                    <td colspan="4">-</td>
+                                                    <td colspan="5">-</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -189,6 +284,506 @@
                 {
                     "status": "success"
                 }
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4" id="quiz">
+                            <div class="italic bg-gray-900 text-white py-1 px-2 rounded"><span class=" font-semibold"'>QUIZ</span> - Manage quiz data.</div>
+                            <div class="md:px-10 px-0 mt-4">
+                                <div class="flex flex-wrap mb-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">RECEIVE: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/quiz</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            [
+                {
+                    "id": 1,
+                    "user_id": 1,
+                    "quiz": 1,
+                    "score": 50,
+                    "team": "AR",
+                    "created_at": "2021-10-01 12:23:15",
+                    "updated_at": "2021-10-01 12:23:15"
+                }
+            ]
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">CREATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">POST</span> http://mmu.ddns.net/api/quiz</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">1</td>
+                                                    <td class="px-6 text-sm ">user_id</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">2</td>
+                                                    <td class="px-6 text-sm ">quiz</td>
+                                                    <td class="px-6 text-sm ">boolean</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">score</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">50</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">4</td>
+                                                    <td class="px-6 text-sm ">team</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">AR</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "status": "success",
+                "data": {
+                    "user_id": "1",
+                    "quiz": "1",
+                    "score": "50",
+                    "team": "AR",
+                    "updated_at": "2021-10-01 12:25:53",
+                    "created_at": "2021-10-01 12:25:53",
+                    "id": 1
+                }
+            }
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">SHOW: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/quiz/{quiz_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "id": 1,
+                "user_id": 1,
+                "quiz": 1,
+                "score": 50,
+                "team": "AR",
+                "created_at": "2021-10-01 12:25:53",
+                "updated_at": "2021-10-01 12:25:53"
+            }
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">UPDATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">PUT/PATCH</span> http://mmu.ddns.net/api/quiz/{quiz_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">1</td>
+                                                    <td class="px-6 text-sm ">user_id</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">2</td>
+                                                    <td class="px-6 text-sm ">quiz</td>
+                                                    <td class="px-6 text-sm ">boolean</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">score</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">60</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">4</td>
+                                                    <td class="px-6 text-sm ">team</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">AR</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "status": "success",
+                "data": {
+                    "user_id": "1",
+                    "quiz": "1",
+                    "score": "60",
+                    "team": "AR",
+                    "updated_at": "2021-10-01 12:25:53",
+                    "created_at": "2021-10-01 12:25:53",
+                    "id": 1
+                }
+            }
+                                        </pre>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">DELETE: <span class="bg-gray-600 rounded p-1 text-white text-xs">DELETE</span> http://mmu.ddns.net/api/quiz/{quiz_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "status": "success"
+            }
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4" id="gamesession">
+                            <div class="italic bg-gray-900 text-white py-1 px-2 rounded"><span class=" font-semibold"'>GAME SESSION</span> - Manage game session data.</div>
+                            <div class="md:px-10 px-0 mt-4">
+                                <div class="flex flex-wrap mb-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">RECEIVE: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/gamesession</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            [
+                {
+                    "id": 1,
+                    "user_id": 1,
+                    "level": 1,
+                    "score": 30,
+                    "status": "Completed",
+                    "team": "AR",
+                    "created_at": "2021-10-01 12:40:27",
+                    "updated_at": "2021-10-01 12:40:27"
+                }
+            ]
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">CREATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">POST</span> http://mmu.ddns.net/api/gamesession</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">1</td>
+                                                    <td class="px-6 text-sm ">user_id</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">level</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">score</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">30</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">4</td>
+                                                    <td class="px-6 text-sm ">status</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">Completed</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">5</td>
+                                                    <td class="px-6 text-sm ">team</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">AR</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "status": "success",
+                "data": {
+                    "user_id": "1",
+                    "status": "Completed",
+                    "level": "1",
+                    "score": "30",
+                    "team": "AR",
+                    "updated_at": "2021-10-01 12:40:27",
+                    "created_at": "2021-10-01 12:40:27",
+                    "id": 1
+                }
+            }
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">SHOW: <span class="bg-gray-600 rounded p-1 text-white text-xs">GET</span> http://mmu.ddns.net/api/gamesession/{gamesession_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "id": 1,
+                "user_id": 1,
+                "level": 1,
+                "score": 30,
+                "status": "Completed",
+                "team": "AR",
+                "created_at": "2021-10-01 12:40:27",
+                "updated_at": "2021-10-01 12:40:27"
+            }
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">UPDATE: <span class="bg-gray-600 rounded p-1 text-white text-xs">PUT/PATCH</span> http://mmu.ddns.net/api/gamesession/{gamesession_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">1</td>
+                                                    <td class="px-6 text-sm ">user_id</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">level</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">1</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">3</td>
+                                                    <td class="px-6 text-sm ">score</td>
+                                                    <td class="px-6 text-sm ">integer</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">40</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">4</td>
+                                                    <td class="px-6 text-sm ">status</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">Completed</td>
+                                                </tr>
+                                                <tr class="border-2 border-gray-400">
+                                                    <td class="px-6 ">5</td>
+                                                    <td class="px-6 text-sm ">team</td>
+                                                    <td class="px-6 text-sm ">string</td>
+                                                    <td class="px-6 text-sm"><i class="lni lni-checkmark text-lg"></i></td>
+                                                    <td class="px-6 text-sm">AR</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "status": "success",
+                "data": {
+                    "id": 1,
+                    "user_id": 1,
+                    "level": 1,
+                    "score": 40,
+                    "status": "Completed",
+                    "team": "AR",
+                    "created_at": "2021-10-01 12:40:27",
+                    "updated_at": "2021-10-01 12:43:58"
+                }
+            }
+                                        </pre>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="flex flex-wrap my-8">
+                                    <div class="w-1/2 flex flex-col">                
+                                        <div class=" my-2"><span class=" font-semibold">DELETE: <span class="bg-gray-600 rounded p-1 text-white text-xs">DELETE</span> http://mmu.ddns.net/api/gamesession/{gamesession_id}</div>
+                                        <div class=" my-2"><span class=" font-semibold">PARAMETERS :</span></div>
+                                        <table class="border-2 border-gray-400 text-center w-1/2">
+                                            <thead class="border-2 border-gray-400">
+                                                <tr>
+                                                    <th class="px-6 ">#</th>
+                                                    <th class="px-6 text-sm ">Name</th>
+                                                    <th class="px-6 text-sm ">Type</th>
+                                                    <th class="px-6 text-sm">Required</th>
+                                                    <th class="px-6 text-sm">Example</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white">
+                                                <tr class="border-2 border-gray-400">
+                                                    <td colspan="5">-</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flex-1 md:mt-0 mt-3">
+                                        <div class=" my-2"><span class=" font-semibold">SAMPLE RESPONSE :</span></div>
+                                        <pre>
+            {
+                "status": "success"
+            }
                                         </pre>
                                     </div>
                                 </div>
